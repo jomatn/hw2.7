@@ -1,11 +1,18 @@
 package com.example.hw72;
-
+import static com.example.hw72.R.id.spinner;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
-
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,14 +21,17 @@ public class MainActivity extends AppCompatActivity {
     private boolean isOperationOver;
     private Integer first, second;
     private String operator;
+    private String result;
+    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         textView = findViewById(R.id.text_view);
         currentInput = new StringBuilder();
+        Button button = findViewById(R.id.button);
     }
 
     public void onNumberClick(View view) {
@@ -69,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             currentInput.setLength(0);
             textView.setText("");
         } else if (view.getId() == R.id.equal) {
-            // Равно
             second = Integer.valueOf(textView.getText().toString());
             if (operator != null) {
                 Integer result;
@@ -84,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
                         if (second != 0) {
                             result = first / second;
                         } else {
-                            // Обработка деления на ноль
                             result = 0;
+
                         }
                         break;
                     case "-":
@@ -96,12 +105,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 textView.setText(String.valueOf(result));
+                Toast.makeText(this, "Result: " + result, Toast.LENGTH_SHORT).show();
                 isOperationOver = true;
                 operator = null;
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+
             }
         }
     }
 
-    public void onClearClick(View view) {
-    }
+
 }

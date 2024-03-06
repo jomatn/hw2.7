@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".MainActivity"
+    android:background="@color/dark_blue"
+    android:id="@+id/background">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginHorizontal="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/card_button"
+                android:layout_width="145dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="105dp"
+                android:backgroundTint="@color/blue"
+                android:text="Category"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/heart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:id="@+id/heart"
+                android:onClick="onHeartClick"/>
+
+            <TextView
+                android:id="@+id/card_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore the nightlife \n        of your city"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/partip"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_button"
+              />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Free"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="18dp"
+                android:id="@+id/free"
+              />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price💰"
+                app:layout_constraintTop_toBottomOf="@+id/free"
+                android:layout_marginStart="30dp" />
+
+            <ImageView
+                android:id="@+id/partip"
+                android:layout_width="105dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/participants"
+                app:layout_constraintTop_toBottomOf="@id/card_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <ImageView
+                android:id="@+id/grad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_stroke"
+                app:layout_constraintStart_toEndOf="@id/partip"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_text"
+                android:layout_marginTop="45dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:text="Accessibility"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/partip"
+                app:layout_constraintTop_toBottomOf="@id/grad"
+                android:layout_marginStart="270dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:text="Next"
+        android:textSize="16sp"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintEnd_toEndOf="@id/card_view"
+        app:layout_constraintStart_toStartOf="@id/card_view"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Category"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toStartOf="@id/card_view"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        android:layout_marginTop="105dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="158dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="120dp"
+        android:background="@color/white"
+        android:textSize="15sp"
+
+        app:layout_constraintStart_toStartOf="@id/card_view"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        />
+    <SeekBar
+        android:id="@+id/slider1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:progress="30"
+        android:max="100"
+        android:splitTrack="false"
+        app:layout_constraintStart_toEndOf="@id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress"/>
+
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/slider2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:progress="30"
+        android:max="100"
+        android:splitTrack="false"
+        app:layout_constraintStart_toEndOf="@id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider1"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

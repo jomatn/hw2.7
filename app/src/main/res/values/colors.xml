@@ -5,4 +5,10 @@
     <color name="grey">#A5A6A5</color>
     <color name="dark_grey">#333333</color>
     <color name="orange">#FF9F0A</color>
+    <color name="dark_blue">#28323B</color>
+    <color name="blue">#2F80ED</color>
+    <color name="blueish">#2196F3</color>
+    <color name="red">#AC4800</color>
+    <color name="green">#4CFF48</color>
+
 </resources>
