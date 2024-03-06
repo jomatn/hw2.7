@@ -3,6 +3,7 @@ package com.example.hw72;
 import static com.example.hw72.R.id.heart;
 import static com.example.hw72.R.id.spinner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -53,8 +54,12 @@ public class SecondActivity extends AppCompatActivity{
     }
     public void onHeartClick(View view) {
         Button heartImageView = findViewById(R.id.heart);
-        heartImageView.setBackgroundResource(R.drawable.heart__1_);
+        heartImageView.setBackgroundResource(R.drawable.heart__1_);}
 
+    public void onNextClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        finish();
     }
 
 }

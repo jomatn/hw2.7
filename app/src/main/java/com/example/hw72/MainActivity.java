@@ -10,8 +10,13 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text_view);
         currentInput = new StringBuilder();
-        Button button = findViewById(R.id.button);
     }
 
     public void onNumberClick(View view) {
@@ -105,15 +109,27 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 textView.setText(String.valueOf(result));
-                Toast.makeText(this, "Result: " + result, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(view, "Result: " + result, Snackbar.LENGTH_SHORT)
+                        .setAction("Go to Second Activity", v -> {
+                            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                            startActivity(intent);
+                        });
+
+                snackbar.setActionTextColor(getResources().getColor(android.R.color.white));
+
+                snackbar.show();
+
                 isOperationOver = true;
                 operator = null;
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
-
             }
         }
+
+
     }
 
-
+    @Override
+    public void startActivity(Intent intent, @Nullable Bundle options) {
+        super.startActivity(intent, options);
+        finish();
+    }
 }
